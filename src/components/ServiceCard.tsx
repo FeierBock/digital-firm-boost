@@ -14,6 +14,7 @@ interface ServiceCardProps {
   link: string;
   accentColor?: string;
   primary?: boolean;
+  id?: string; // Added the id property as optional
 }
 
 const ServiceCard = ({
@@ -25,10 +26,12 @@ const ServiceCard = ({
   link,
   accentColor = 'bg-brand-500',
   primary = false,
+  id,
 }: ServiceCardProps) => {
   return (
     <Card 
       className={`card-hover ${primary ? 'border-brand-500 shadow-lg relative overflow-hidden' : 'border-gray-200'}`}
+      id={id}
     >
       {primary && (
         <div className="absolute top-0 right-0 bg-brand-500 text-white px-4 py-1 rounded-bl-lg font-medium text-sm">
