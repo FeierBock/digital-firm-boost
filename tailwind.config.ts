@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,31 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Custom brand colors
+				brand: {
+					50: '#E6F7FF',
+					100: '#BAE7FF',
+					200: '#91D5FF',
+					300: '#69C0FF',
+					400: '#40A9FF',
+					500: '#1890FF',
+					600: '#096DD9',
+					700: '#0050B3',
+					800: '#003A8C',
+					900: '#002766',
+				},
+				accent2: {
+					50: '#E6FCF5',
+					100: '#C3FAE8',
+					200: '#96F2D7',
+					300: '#63E6BE',
+					400: '#38D9A9',
+					500: '#20C997',
+					600: '#12B886',
+					700: '#0CA678',
+					800: '#099268',
+					900: '#087F5B',
 				}
 			},
 			borderRadius: {
@@ -68,27 +94,29 @@ export default {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+			fontFamily: {
+				sans: ['Poppins', 'Inter', 'sans-serif'],
+				inter: ['Inter', 'sans-serif'],
+				poppins: ['Poppins', 'sans-serif']
+			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' },
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' },
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' },
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 3s ease-in-out infinite',
 			}
 		}
 	},
