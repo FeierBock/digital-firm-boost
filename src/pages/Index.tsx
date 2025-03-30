@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import { SectionTitle } from '@/components/ui/section-title';
@@ -7,10 +6,8 @@ import TestimonialCard from '@/components/TestimonialCard';
 import CtaSection from '@/components/CtaSection';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Globe, Users, BarChart3, PenTool, Smartphone, Database, CheckCircle } from 'lucide-react';
-
 const Index = () => {
-  return (
-    <Layout>
+  return <Layout>
       {/* Hero Section */}
       <section className="relative pt-20 pb-24 md:pt-28 md:pb-32 bg-gradient-to-r from-brand-50 to-accent2-50 overflow-hidden">
         <div className="container mx-auto px-4 md:px-6">
@@ -35,11 +32,7 @@ const Index = () => {
             <div className="lg:pl-10 hidden lg:block">
               <div className="relative">
                 <div className="relative z-10 bg-white rounded-lg shadow-xl overflow-hidden animate-float">
-                  <img 
-                    src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" 
-                    alt="Digital Marketing Dashboard" 
-                    className="w-full h-auto"
-                  />
+                  <img alt="Digital Marketing Dashboard" src="/lovable-uploads/bbbe5d0e-9cf3-4527-b406-995f12382aca.png" className="w-full h-auto object-contain" />
                 </div>
                 <div className="absolute -bottom-8 -left-8 w-28 h-28 bg-accent2-400 rounded-lg opacity-60 blur-xl"></div>
                 <div className="absolute -top-10 -right-10 w-40 h-40 bg-brand-400 rounded-full opacity-60 blur-xl"></div>
@@ -52,12 +45,7 @@ const Index = () => {
       {/* Features Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-6">
-          <SectionTitle
-            title="Wir machen Ihr Unternehmen digital fit"
-            subtitle="Unsere umfassenden digitalen Lösungen helfen kleinen Unternehmen, ihre Online-Präsenz zu stärken und Prozesse zu optimieren."
-            centered
-            className="mb-16"
-          />
+          <SectionTitle title="Wir machen Ihr Unternehmen digital fit" subtitle="Unsere umfassenden digitalen Lösungen helfen kleinen Unternehmen, ihre Online-Präsenz zu stärken und Prozesse zu optimieren." centered className="mb-16" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
@@ -144,59 +132,14 @@ const Index = () => {
       {/* Popular Services Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 md:px-6">
-          <SectionTitle
-            title="Unsere beliebtesten Pakete"
-            subtitle="Wählen Sie das passende Paket für Ihr Unternehmen und starten Sie Ihre digitale Transformation."
-            centered
-            className="mb-16"
-          />
+          <SectionTitle title="Unsere beliebtesten Pakete" subtitle="Wählen Sie das passende Paket für Ihr Unternehmen und starten Sie Ihre digitale Transformation." centered className="mb-16" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <ServiceCard
-              title="Website Basic"
-              description="Eine professionelle Website für kleine Unternehmen, die online präsent sein möchten."
-              icon={<Globe size={24} />}
-              features={[
-                "Responsive Design",
-                "Bis zu 5 Unterseiten",
-                "Kontaktformular",
-                "SEO-Grundoptimierung",
-                "Social Media Integration"
-              ]}
-              price="ab 99€"
-              link="/services#website-basic"
-            />
+            <ServiceCard title="Website Basic" description="Eine professionelle Website für kleine Unternehmen, die online präsent sein möchten." icon={<Globe size={24} />} features={["Responsive Design", "Bis zu 5 Unterseiten", "Kontaktformular", "SEO-Grundoptimierung", "Social Media Integration"]} price="ab 99€" link="/services#website-basic" />
 
-            <ServiceCard
-              title="Social Media Starter"
-              description="Professionelles Setup und Management Ihrer Social Media Kanäle."
-              icon={<Users size={24} />}
-              features={[
-                "Setup von 2 Plattformen",
-                "Wöchentliche Posts",
-                "Erstellung von Inhalten",
-                "Community Management",
-                "Monatliche Analyse"
-              ]}
-              price="ab 199€"
-              link="/services#social-media-starter"
-              primary
-            />
+            <ServiceCard title="Social Media Starter" description="Professionelles Setup und Management Ihrer Social Media Kanäle." icon={<Users size={24} />} features={["Setup von 2 Plattformen", "Wöchentliche Posts", "Erstellung von Inhalten", "Community Management", "Monatliche Analyse"]} price="ab 199€" link="/services#social-media-starter" primary />
 
-            <ServiceCard
-              title="Digital Komplett"
-              description="Das Rundum-sorglos-Paket für Ihre gesamte digitale Präsenz."
-              icon={<CheckCircle size={24} />}
-              features={[
-                "Website Basic inkl.",
-                "Social Media Starter inkl.",
-                "Content-Erstellung",
-                "SEO-Optimierung",
-                "Monatlicher Report"
-              ]}
-              price="ab 299€"
-              link="/services#digital-komplett"
-            />
+            <ServiceCard title="Digital Komplett" description="Das Rundum-sorglos-Paket für Ihre gesamte digitale Präsenz." icon={<CheckCircle size={24} />} features={["Website Basic inkl.", "Social Media Starter inkl.", "Content-Erstellung", "SEO-Optimierung", "Monatlicher Report"]} price="ab 299€" link="/services#digital-komplett" />
           </div>
 
           <div className="text-center mt-10">
@@ -210,53 +153,20 @@ const Index = () => {
       {/* Testimonials Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-6">
-          <SectionTitle
-            title="Das sagen unsere Kunden"
-            subtitle="Erfahren Sie, wie wir kleinen Unternehmen geholfen haben, ihre Online-Präsenz zu verbessern."
-            centered
-            className="mb-16"
-          />
+          <SectionTitle title="Das sagen unsere Kunden" subtitle="Erfahren Sie, wie wir kleinen Unternehmen geholfen haben, ihre Online-Präsenz zu verbessern." centered className="mb-16" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <TestimonialCard
-              quote="Dank DigitalFirmBoost haben wir endlich eine professionelle Website, die unsere Dienstleistungen perfekt präsentiert. Der gesamte Prozess war unkompliziert und das Ergebnis hat unsere Erwartungen übertroffen."
-              author="Lisa Schmitt"
-              role="Geschäftsführerin"
-              company="Blumen Schmitt"
-              rating={5}
-            />
+            <TestimonialCard quote="Dank DigitalFirmBoost haben wir endlich eine professionelle Website, die unsere Dienstleistungen perfekt präsentiert. Der gesamte Prozess war unkompliziert und das Ergebnis hat unsere Erwartungen übertroffen." author="Lisa Schmitt" role="Geschäftsführerin" company="Blumen Schmitt" rating={5} />
 
-            <TestimonialCard
-              quote="Unsere Social-Media-Kanäle sind jetzt viel aktiver und wir erreichen deutlich mehr potenzielle Kunden. Das Team ist sehr professionell und kreativ. Absolut empfehlenswert!"
-              author="Michael Weber"
-              role="Inhaber"
-              company="Weber Schreinerei"
-              rating={5}
-            />
+            <TestimonialCard quote="Unsere Social-Media-Kanäle sind jetzt viel aktiver und wir erreichen deutlich mehr potenzielle Kunden. Das Team ist sehr professionell und kreativ. Absolut empfehlenswert!" author="Michael Weber" role="Inhaber" company="Weber Schreinerei" rating={5} />
 
-            <TestimonialCard
-              quote="Die Beratung zu DigitalInvest KMU war goldwert. Wir konnten finanzielle Unterstützung für unsere Digitalisierungsprojekte erhalten. Vielen Dank für die kompetente Begleitung!"
-              author="Julia Fischer"
-              role="Marketing Manager"
-              company="Fischer & Söhne GmbH"
-              rating={5}
-            />
+            <TestimonialCard quote="Die Beratung zu DigitalInvest KMU war goldwert. Wir konnten finanzielle Unterstützung für unsere Digitalisierungsprojekte erhalten. Vielen Dank für die kompetente Begleitung!" author="Julia Fischer" role="Marketing Manager" company="Fischer & Söhne GmbH" rating={5} />
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <CtaSection
-        title="Bereit für den digitalen Erfolg?"
-        description="Kontaktieren Sie uns für eine kostenlose Erstberatung und starten Sie Ihre digitale Transformation."
-        primaryButtonText="Jetzt Kontakt aufnehmen"
-        primaryButtonLink="/contact"
-        secondaryButtonText="Mehr über unsere Leistungen"
-        secondaryButtonLink="/services"
-        backgroundClass="bg-gradient-to-r from-brand-50 to-accent2-50"
-      />
-    </Layout>
-  );
+      <CtaSection title="Bereit für den digitalen Erfolg?" description="Kontaktieren Sie uns für eine kostenlose Erstberatung und starten Sie Ihre digitale Transformation." primaryButtonText="Jetzt Kontakt aufnehmen" primaryButtonLink="/contact" secondaryButtonText="Mehr über unsere Leistungen" secondaryButtonLink="/services" backgroundClass="bg-gradient-to-r from-brand-50 to-accent2-50" />
+    </Layout>;
 };
-
 export default Index;
