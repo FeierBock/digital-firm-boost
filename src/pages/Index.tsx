@@ -32,7 +32,7 @@ const Index = () => {
             <div className="lg:pl-10 hidden lg:block">
               <div className="relative">
                 <div className="relative z-10 bg-white rounded-lg shadow-xl overflow-hidden animate-float">
-                  <img alt="Digital Marketing Dashboard" src="/lovable-uploads/bbbe5d0e-9cf3-4527-b406-995f12382aca.png" className="w-full h-auto object-contain" />
+                  <img alt="Digital Marketing Dashboard" className="w-full h-auto object-contain" src="/lovable-uploads/01cb2aa5-1d1e-430b-91b8-2387a459651c.png" />
                 </div>
                 <div className="absolute -bottom-8 -left-8 w-28 h-28 bg-accent2-400 rounded-lg opacity-60 blur-xl"></div>
                 <div className="absolute -top-10 -right-10 w-40 h-40 bg-brand-400 rounded-full opacity-60 blur-xl"></div>
