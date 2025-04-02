@@ -7,89 +7,15 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Link } from 'react-router-dom';
 import { CalendarIcon, Clock, Search, Tag } from 'lucide-react';
-
-const BlogPosts = [
-  {
-    id: 1,
-    title: 'Warum kleine Unternehmen eine Website brauchen',
-    excerpt: 'In der heutigen digitalen Welt ist eine Website für kleine Unternehmen kein Luxus mehr, sondern eine Notwendigkeit. Erfahren Sie, warum...',
-    date: '15.06.2023',
-    readTime: '5 min',
-    author: 'Sarah Wagner',
-    category: 'Webdesign',
-    tags: ['Website', 'Kleine Unternehmen', 'Online-Präsenz'],
-    image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d'
-  },
-  {
-    id: 2,
-    title: 'Social Media Marketing für Anfänger: Ein Leitfaden',
-    excerpt: 'Social Media kann überwältigend sein, besonders für kleine Unternehmen. Hier ist ein einfacher Leitfaden, um Ihnen den Einstieg zu erleichtern...',
-    date: '02.07.2023',
-    readTime: '8 min',
-    author: 'Michael Becker',
-    category: 'Social Media',
-    tags: ['Social Media', 'Marketing', 'Anfängerleitfaden'],
-    image: 'https://images.unsplash.com/photo-1611926653458-09294b3142bf'
-  },
-  {
-    id: 3,
-    title: 'DigitalInvest KMU: Wie Sie von staatlicher Förderung profitieren',
-    excerpt: 'Das Förderprogramm DigitalInvest KMU bietet kleinen und mittleren Unternehmen finanzielle Unterstützung für Digitalisierungsprojekte...',
-    date: '18.07.2023',
-    readTime: '6 min',
-    author: 'Lisa Schmitt',
-    category: 'Förderung',
-    tags: ['DigitalInvest', 'Förderung', 'Digitalisierung'],
-    image: 'https://images.unsplash.com/photo-1535303311164-664fc9ec6532'
-  },
-  {
-    id: 4,
-    title: 'Die 5 häufigsten Fehler bei der Erstellung einer Unternehmenswebsite',
-    excerpt: 'Viele Unternehmen machen bei der Erstellung ihrer Website vermeidbare Fehler, die die Benutzererfahrung und das Ranking beeinträchtigen...',
-    date: '05.08.2023',
-    readTime: '7 min',
-    author: 'Sarah Wagner',
-    category: 'Webdesign',
-    tags: ['Website', 'Fehler', 'SEO'],
-    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c'
-  },
-  {
-    id: 5,
-    title: 'Prozessoptimierung: Wie Sie Ihr Unternehmen effizienter gestalten',
-    excerpt: 'Digitale Prozessoptimierung kann Ihrem Unternehmen helfen, Zeit und Ressourcen zu sparen. Hier sind einige Tipps, um anzufangen...',
-    date: '22.08.2023',
-    readTime: '9 min',
-    author: 'Thomas Müller',
-    category: 'Prozessoptimierung',
-    tags: ['Effizienz', 'Digitalisierung', 'Workflows'],
-    image: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a'
-  },
-  {
-    id: 6,
-    title: 'Die Bedeutung von Mobile-First Design für Ihre Website',
-    excerpt: 'Mit der zunehmenden Nutzung von Mobilgeräten ist ein für mobile Geräte optimiertes Webdesign unerlässlich geworden...',
-    date: '10.09.2023',
-    readTime: '6 min',
-    author: 'Sarah Wagner',
-    category: 'Webdesign',
-    tags: ['Mobile-First', 'Responsive Design', 'UX'],
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c'
-  }
-];
-
-const categories = [
-  { name: 'Webdesign', count: 32 },
-  { name: 'Social Media', count: 24 },
-  { name: 'SEO', count: 18 },
-  { name: 'Prozessoptimierung', count: 15 },
-  { name: 'Förderung', count: 10 },
-  { name: 'E-Commerce', count: 8 }
-];
-
-const popularTags = [
-  'Website', 'Social Media', 'SEO', 'Digitalisierung', 'Online-Marketing',
-  'E-Commerce', 'Content', 'Google', 'Mobile-First', 'Kundenbindung'
-];
+import { BlogPosts, categories, popularTags } from '@/data/blogData';
+import { 
+  Pagination, 
+  PaginationContent, 
+  PaginationItem, 
+  PaginationLink, 
+  PaginationNext, 
+  PaginationPrevious 
+} from '@/components/ui/pagination';
 
 const Blog = () => {
   return (
@@ -174,25 +100,27 @@ const Blog = () => {
                 ))}
               </div>
 
-              {/* Pagination */}
-              <div className="mt-10 flex justify-center">
-                <div className="flex space-x-1">
-                  <Button variant="outline" className="border-gray-200">
-                    Zurück
-                  </Button>
-                  <Button variant="outline" className="border-gray-200 bg-brand-50 text-brand-600">
-                    1
-                  </Button>
-                  <Button variant="outline" className="border-gray-200">
-                    2
-                  </Button>
-                  <Button variant="outline" className="border-gray-200">
-                    3
-                  </Button>
-                  <Button variant="outline" className="border-gray-200">
-                    Weiter
-                  </Button>
-                </div>
+              {/* Pagination - Using the shadcn/ui pagination component */}
+              <div className="mt-10">
+                <Pagination>
+                  <PaginationContent>
+                    <PaginationItem>
+                      <PaginationPrevious href="#" />
+                    </PaginationItem>
+                    <PaginationItem>
+                      <PaginationLink href="#" isActive>1</PaginationLink>
+                    </PaginationItem>
+                    <PaginationItem>
+                      <PaginationLink href="#">2</PaginationLink>
+                    </PaginationItem>
+                    <PaginationItem>
+                      <PaginationLink href="#">3</PaginationLink>
+                    </PaginationItem>
+                    <PaginationItem>
+                      <PaginationNext href="#" />
+                    </PaginationItem>
+                  </PaginationContent>
+                </Pagination>
               </div>
             </div>
 
