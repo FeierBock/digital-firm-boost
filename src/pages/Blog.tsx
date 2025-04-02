@@ -15,7 +15,8 @@ import {
   PaginationItem, 
   PaginationLink, 
   PaginationNext, 
-  PaginationPrevious 
+  PaginationPrevious,
+  PaginationEllipsis 
 } from '@/components/ui/pagination';
 
 const Blog = () => {
@@ -58,6 +59,87 @@ const Blog = () => {
     if (tag) return `Tag: ${tag}`;
     if (queryTag) return `Tag: ${queryTag}`;
     return 'Unser Blog';
+  };
+
+  // Generate pagination items
+  const renderPaginationItems = () => {
+    // For small number of pages, show all
+    if (totalPages <= 7) {
+      return Array.from({ length: totalPages }, (_, i) => (
+        <PaginationItem key={i}>
+          <PaginationLink 
+            isActive={activePage === i + 1}
+            onClick={() => setActivePage(i + 1)}
+          >
+            {i + 1}
+          </PaginationLink>
+        </PaginationItem>
+      ));
+    }
+
+    // For larger number of pages, show with ellipsis
+    const items = [];
+
+    // Always show first page
+    items.push(
+      <PaginationItem key={1}>
+        <PaginationLink 
+          isActive={activePage === 1}
+          onClick={() => setActivePage(1)}
+        >
+          1
+        </PaginationLink>
+      </PaginationItem>
+    );
+
+    // Show ellipsis if active page is > 3
+    if (activePage > 3) {
+      items.push(
+        <PaginationItem key="ellipsis-1">
+          <PaginationEllipsis />
+        </PaginationItem>
+      );
+    }
+
+    // Show pages around active page
+    const startPage = Math.max(2, activePage - 1);
+    const endPage = Math.min(totalPages - 1, activePage + 1);
+
+    for (let i = startPage; i <= endPage; i++) {
+      items.push(
+        <PaginationItem key={i}>
+          <PaginationLink 
+            isActive={activePage === i}
+            onClick={() => setActivePage(i)}
+          >
+            {i}
+          </PaginationLink>
+        </PaginationItem>
+      );
+    }
+
+    // Show ellipsis if active page is < totalPages - 2
+    if (activePage < totalPages - 2) {
+      items.push(
+        <PaginationItem key="ellipsis-2">
+          <PaginationEllipsis />
+        </PaginationItem>
+      );
+    }
+
+    // Always show last page
+    items.push(
+      <PaginationItem key={totalPages}>
+        <PaginationLink 
+          isActive={activePage === totalPages}
+          onClick={() => setActivePage(totalPages)}
+        >
+          {totalPages}
+        </PaginationLink>
+      </PaginationItem>
+    );
+
+    return items;
   };
 
   return (
@@ -182,16 +264,7 @@ const Blog = () => {
                         />
                       </PaginationItem>
                       
-                      {[...Array(totalPages)].map((_, i) => (
-                        <PaginationItem key={i}>
-                          <PaginationLink 
-                            isActive={activePage === i + 1}
-                            onClick={() => setActivePage(i + 1)}
-                          >
-                            {i + 1}
-                          </PaginationLink>
-                        </PaginationItem>
-                      ))}
+                      {renderPaginationItems()}
                       
                       <PaginationItem>
                         <PaginationNext 
@@ -201,6 +274,13 @@ const Blog = () => {
                       </PaginationItem>
                     </PaginationContent>
                   </Pagination>
+                </div>
+              )}
+              
+              {/* Page counter */}
+              {totalPages > 1 && (
+                <div className="text-center mt-4 text-sm text-gray-500">
+                  Seite {activePage} von {totalPages}
                 </div>
               )}
             </div>
