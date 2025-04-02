@@ -60,8 +60,13 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="text-2xl font-bold gradient-text">
-            Web-Attack
+          <Link to="/" className="flex items-center space-x-2">
+            <img 
+              src="/lovable-uploads/784b66e9-c24b-4b51-b638-5f3b48da649d.png" 
+              alt="Web-Attack Logo" 
+              className="h-10"
+            />
+            <span className="text-2xl font-bold gradient-text">Web-Attack</span>
           </Link>
 
           {/* Desktop Menu */}
