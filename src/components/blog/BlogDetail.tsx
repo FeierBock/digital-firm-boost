@@ -1,6 +1,6 @@
 
-import Layout from '@/components/Layout';
 import { Link, useParams } from 'react-router-dom';
+import Layout from '@/components/Layout';
 import { SectionTitle } from '@/components/ui/section-title';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -140,7 +140,7 @@ const BlogDetail = () => {
                 {post.tags.map((tag, idx) => (
                   <Link 
                     key={idx} 
-                    to={`/blog/tag/${tag.toLowerCase()}`}
+                    to={`/blog?tag=${tag.toLowerCase()}`}
                     className="bg-gray-50 hover:bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm transition-colors"
                   >
                     {tag}
