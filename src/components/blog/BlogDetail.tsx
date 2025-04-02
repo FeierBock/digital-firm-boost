@@ -46,10 +46,10 @@ const BlogDetail = () => {
         <div className="container mx-auto px-4 md:px-6">
           <Breadcrumb className="mb-6">
             <BreadcrumbItem>
-              <BreadcrumbLink as={Link} to="/">Startseite</BreadcrumbLink>
+              <BreadcrumbLink href="/">Startseite</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbItem>
-              <BreadcrumbLink as={Link} to="/blog">Blog</BreadcrumbLink>
+              <BreadcrumbLink href="/blog">Blog</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbItem>
               <BreadcrumbLink>{post.title.substring(0, 20)}...</BreadcrumbLink>
