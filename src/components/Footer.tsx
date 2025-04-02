@@ -1,22 +1,14 @@
-
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Linkedin, Twitter, Mail, Phone, MapPin } from 'lucide-react';
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  return (
-    <footer className="bg-gray-900 text-white pt-16 pb-8">
+  return <footer className="bg-gray-900 text-white pt-16 pb-8">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <img 
-                src="/lovable-uploads/784b66e9-c24b-4b51-b638-5f3b48da649d.png" 
-                alt="Web-Attack Logo" 
-                className="h-8"
-              />
+              <img alt="Web-Attack Logo" className="h-8" src="/lovable-uploads/e275f90a-671c-45c2-a091-32a8c86c3c39.png" />
               <h3 className="text-xl font-bold gradient-text">Web-Attack</h3>
             </div>
             <p className="text-gray-400 mb-4">
@@ -150,8 +142,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;

@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import { SectionTitle } from '@/components/ui/section-title';
@@ -7,7 +6,6 @@ import TestimonialCard from '@/components/TestimonialCard';
 import CtaSection from '@/components/CtaSection';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Globe, Users, BarChart3, PenTool, Smartphone, Database, CheckCircle } from 'lucide-react';
-
 const Index = () => {
   return <Layout>
       {/* Hero Section */}
@@ -34,11 +32,7 @@ const Index = () => {
             <div className="lg:pl-10 hidden lg:block">
               <div className="relative">
                 <div className="relative z-10 bg-white rounded-lg shadow-xl overflow-hidden animate-float">
-                  <img 
-                    alt="Digital Marketing Dashboard" 
-                    src="/lovable-uploads/d82cf4eb-3d73-42c6-be8f-5121bc1cce03.png" 
-                    className="w-full h-auto object-cover" 
-                  />
+                  <img alt="Digital Marketing Dashboard" src="/lovable-uploads/d82cf4eb-3d73-42c6-be8f-5121bc1cce03.png" className="w-full h-auto object-cover" />
                 </div>
                 <div className="absolute -bottom-8 -left-8 w-28 h-28 bg-accent2-400 rounded-lg opacity-60 blur-xl"></div>
                 <div className="absolute -top-10 -right-10 w-40 h-40 bg-brand-400 rounded-full opacity-60 blur-xl"></div>
@@ -169,11 +163,7 @@ const Index = () => {
               </Button>
             </div>
             <div className="order-1 lg:order-2 relative">
-              <img 
-                src="/lovable-uploads/1cc61419-3eb9-4e82-976b-191a12f6032f.png" 
-                alt="Social Media Marketing" 
-                className="rounded-lg shadow-lg w-full"
-              />
+              <img src="/lovable-uploads/1cc61419-3eb9-4e82-976b-191a12f6032f.png" alt="Social Media Marketing" className="rounded-lg shadow-lg w-full" />
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-brand-400 rounded-full opacity-20 blur-xl"></div>
             </div>
           </div>
@@ -185,11 +175,7 @@ const Index = () => {
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
-              <img 
-                src="/lovable-uploads/fbbbabd8-7479-4d48-9b4f-0f0e15279fe4.png" 
-                alt="Digitale Transformation" 
-                className="rounded-lg shadow-lg w-full"
-              />
+              <img src="/lovable-uploads/fbbbabd8-7479-4d48-9b4f-0f0e15279fe4.png" alt="Digitale Transformation" className="rounded-lg shadow-lg w-full" />
               <div className="absolute -top-4 -left-4 w-24 h-24 bg-accent2-400 rounded-full opacity-20 blur-xl"></div>
             </div>
             <div>
@@ -276,11 +262,7 @@ const Index = () => {
               </Button>
             </div>
             <div className="order-1 lg:order-2 relative">
-              <img 
-                src="/lovable-uploads/0492f65e-9c47-45de-a210-387f11f30288.png" 
-                alt="Mobile App Development" 
-                className="rounded-lg shadow-lg w-full"
-              />
+              <img src="/lovable-uploads/0492f65e-9c47-45de-a210-387f11f30288.png" alt="Mobile App Development" className="rounded-lg shadow-lg w-full" />
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-brand-400 rounded-full opacity-20 blur-xl"></div>
             </div>
           </div>
@@ -292,11 +274,7 @@ const Index = () => {
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
-              <img 
-                src="/lovable-uploads/6a76ba51-3784-45e8-ae25-699c32a5ee0d.png" 
-                alt="Datenanalyse und Visualisierung" 
-                className="rounded-lg shadow-lg w-full"
-              />
+              <img alt="Datenanalyse und Visualisierung" className="rounded-lg shadow-lg w-full object-fill" src="/lovable-uploads/e1606a4d-fd09-4ae6-b838-477b5528fb62.png" />
               <div className="absolute -top-4 -left-4 w-24 h-24 bg-accent2-400 rounded-full opacity-20 blur-xl"></div>
             </div>
             <div>
