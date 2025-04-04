@@ -18,15 +18,17 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  // Reordered navigation links as requested
   const navLinks = [{
     name: 'Startseite',
     path: '/'
   }, {
-    name: 'Leistungen',
-    path: '/services'
-  }, {
     name: 'Warum Online-Präsenz?',
     path: '/why-online-presence'
+  }, {
+    name: 'Leistungen',
+    path: '/services'
   }, {
     name: 'Preise',
     path: '/pricing'
@@ -41,8 +43,10 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link to="/" className="text-2xl font-bold gradient-text">Web-Attack
-        </Link>
+          <Link to="/" className="flex items-center space-x-2">
+            <img alt="Web-Attack Logo" className="h-10" src="/lovable-uploads/876a9383-2440-462f-84b6-35348407e5ea.png" />
+            <span className="text-2xl font-bold gradient-text text-transparent">.</span>
+          </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8 items-center">

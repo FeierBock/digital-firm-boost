@@ -110,12 +110,12 @@ const Contact = () => {
               <div>
                 <h3 className="text-xl font-semibold mb-2">E-Mail</h3>
                 <p className="text-gray-600 mb-1">Allgemeine Anfragen:</p>
-                <a href="mailto:info@digitalfirmboost.de" className="text-brand-600 hover:underline">
-                  info@digitalfirmboost.de
+                <a href="mailto:info@web-attack.de" className="text-brand-600 hover:underline">
+                  info@web-attack.de
                 </a>
                 <p className="text-gray-600 mt-3 mb-1">Support:</p>
-                <a href="mailto:support@digitalfirmboost.de" className="text-brand-600 hover:underline">
-                  support@digitalfirmboost.de
+                <a href="mailto:support@web-attack.de" className="text-brand-600 hover:underline">
+                  support@web-attack.de
                 </a>
               </div>
             </div>
@@ -148,7 +148,7 @@ const Contact = () => {
               <div>
                 <h3 className="text-xl font-semibold mb-2">Adresse</h3>
                 <p className="text-gray-600">
-                  DigitalFirmBoost GmbH<br />
+                  Web-Attack GmbH<br />
                   Musterstraße 123<br />
                   12345 Musterstadt<br />
                   Deutschland
