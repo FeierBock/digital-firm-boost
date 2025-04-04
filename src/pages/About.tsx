@@ -58,7 +58,7 @@ const About = () => {
             <div>
               <h2 className="text-3xl font-bold mb-6">Unsere Geschichte</h2>
               <p className="text-gray-600 mb-6">
-                Web-Attack wurde aus der Überzeugung heraus gegründet, dass auch kleine Unternehmen 
+                DigitalFirmBoost wurde aus der Überzeugung heraus gegründet, dass auch kleine Unternehmen 
                 von den Vorteilen der Digitalisierung profitieren sollten - ohne komplizierte Technik 
                 oder übermäßig hohe Kosten.
               </p>
@@ -77,7 +77,7 @@ const About = () => {
             <div className="relative">
               <div className="relative z-10 rounded-lg overflow-hidden shadow-xl">
                 <img 
-                  src="/lovable-uploads/9993323b-8a4d-4b5c-8243-ed2be4542229.png" 
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c" 
                   alt="Team Meeting"
                   className="w-full h-auto"
                 />
@@ -257,7 +257,7 @@ const About = () => {
         <div className="container mx-auto px-4 md:px-6">
           <SectionTitle
             title="Unser Team"
-            subtitle="Die Experten hinter Web-Attack"
+            subtitle="Die Experten hinter DigitalFirmBoost"
             centered
             className="mb-16"
           />
