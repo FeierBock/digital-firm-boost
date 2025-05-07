@@ -11,6 +11,7 @@ import ComprehensivePackages from '@/components/services/ComprehensivePackages';
 import SupportConsulting from '@/components/services/SupportConsulting';
 import CustomSolutions from '@/components/services/CustomSolutions';
 import Documents from '@/components/services/Documents';
+import ServicesNavigation from '@/components/services/ServicesNavigation';
 
 const Services = () => {
   const location = useLocation();
@@ -18,13 +19,21 @@ const Services = () => {
   useEffect(() => {
     // Check if there's a hash in the URL
     if (location.hash) {
-      // Delay scrolling slightly to ensure the page is fully loaded
-      setTimeout(() => {
-        const element = document.getElementById(location.hash.substring(1));
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
+      // Remove the '#' symbol
+      const targetId = location.hash.slice(1);
+      
+      // Find the element with the corresponding ID
+      const targetElement = document.getElementById(targetId);
+      
+      if (targetElement) {
+        // Add a small delay to ensure the page has fully loaded
+        setTimeout(() => {
+          const yOffset = -80; // Adjust this value based on your header height
+          const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }, 300);
+      }
     } else {
       // If no hash, scroll to top
       window.scrollTo(0, 0);
@@ -35,6 +44,9 @@ const Services = () => {
     <Layout>
       {/* Hero Section */}
       <HeroSection />
+
+      {/* Services Navigation */}
+      <ServicesNavigation />
 
       {/* Website Creation Section */}
       <ServiceSection 
@@ -82,7 +94,9 @@ const Services = () => {
       </div>
 
       {/* Documents Section */}
-      <Documents />
+      <div id="documents">
+        <Documents />
+      </div>
 
       {/* CTA Section */}
       <CtaSection
@@ -99,3 +113,4 @@ const Services = () => {
 };
 
 export default Services;
+

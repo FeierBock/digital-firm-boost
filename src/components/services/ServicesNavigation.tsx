@@ -10,19 +10,33 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const ServicesNavigation = () => {
   const [activeSection, setActiveSection] = useState("");
+  const location = useLocation();
   
   // Function to smoothly scroll to a section
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      const yOffset = -80; // Adjust based on header height
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
       setActiveSection(sectionId);
+      
+      // Update URL without reloading the page
+      window.history.pushState(null, "", `/services#${sectionId}`);
     }
   };
+
+  // Effect to set the active section based on hash from URL
+  useEffect(() => {
+    if (location.hash) {
+      const sectionId = location.hash.slice(1);
+      setActiveSection(sectionId);
+    }
+  }, [location]);
 
   // Update active section based on scroll position
   useEffect(() => {
