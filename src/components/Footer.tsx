@@ -1,18 +1,15 @@
-
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Linkedin, Twitter, Mail, Phone, MapPin } from 'lucide-react';
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
   return <footer className="bg-gray-900 text-white pt-16 pb-8">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <img alt="Web-Attack Logo" className="h-8" src="/lovable-uploads/e275f90a-671c-45c2-a091-32a8c86c3c39.png" />
-              <h3 className="text-xl font-bold gradient-text">Web-Attack</h3>
+              <img alt="Web-Attack Logo" src="/lovable-uploads/98f2b43d-8a66-4dc7-9f8f-a2452ced1d72.png" className="h-8 object-cover" />
+              
             </div>
             <p className="text-gray-400 mb-4">
               Wir helfen kleinen Unternehmen, ihre digitale Präsenz aufzubauen und zu optimieren, 
@@ -152,5 +149,4 @@ const Footer = () => {
       </div>
     </footer>;
 };
-
 export default Footer;

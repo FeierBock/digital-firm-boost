@@ -32,7 +32,7 @@ const Index = () => {
             <div className="lg:pl-10 hidden lg:block">
               <div className="relative">
                 <div className="relative z-10 bg-white rounded-lg shadow-xl overflow-hidden animate-float">
-                  <img alt="Digital Marketing Dashboard" src="/lovable-uploads/d82cf4eb-3d73-42c6-be8f-5121bc1cce03.png" className="w-full h-auto object-cover" />
+                  <img alt="Digital Marketing Dashboard" className="w-full h-auto object-cover" src="/lovable-uploads/9e063c47-ffde-45be-970d-7087adf5b127.png" />
                 </div>
                 <div className="absolute -bottom-8 -left-8 w-28 h-28 bg-accent2-400 rounded-lg opacity-60 blur-xl"></div>
                 <div className="absolute -top-10 -right-10 w-40 h-40 bg-brand-400 rounded-full opacity-60 blur-xl"></div>
@@ -274,7 +274,7 @@ const Index = () => {
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
-              <img alt="Datenanalyse und Visualisierung" className="rounded-lg shadow-lg w-full object-fill" src="/lovable-uploads/e1606a4d-fd09-4ae6-b838-477b5528fb62.png" />
+              <img alt="Datenanalyse und Visualisierung" className="rounded-lg shadow-lg w-full object-fill" src="/lovable-uploads/e2f2d587-36ed-4cb4-8e44-9889364cfe72.png" />
               <div className="absolute -top-4 -left-4 w-24 h-24 bg-accent2-400 rounded-full opacity-20 blur-xl"></div>
             </div>
             <div>
