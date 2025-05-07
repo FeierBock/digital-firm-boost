@@ -1,8 +1,10 @@
 
 import { Link, useLocation } from 'react-router-dom';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const HeroSection = () => {
   const location = useLocation();
+  const isMobile = useIsMobile();
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -16,48 +18,37 @@ const HeroSection = () => {
     }
   };
   
+  const serviceCategories = [
+    { id: 'website-creation', label: 'Website-Erstellung' },
+    { id: 'social-media', label: 'Social Media' },
+    { id: 'comprehensive-packages', label: 'Komplettpakete' },
+    { id: 'support-consulting', label: 'Beratung & Support' },
+    { id: 'custom-solutions', label: 'Individuelle Lösungen' }
+  ];
+  
   return (
-    <section className="pt-24 md:pt-28 pb-16 md:pb-20 bg-gradient-to-r from-brand-50 to-accent2-50">
+    <section className="pt-20 md:pt-24 lg:pt-28 pb-8 md:pb-12 lg:pb-16 bg-gradient-to-r from-brand-50 to-accent2-50">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">Unsere Leistungen</h1>
-          <p className="text-base md:text-lg text-gray-600 mb-8">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">Unsere Leistungen</h1>
+          <p className="text-sm sm:text-base md:text-lg text-gray-600 mb-6 md:mb-8">
             Wir bieten maßgeschneiderte digitale Lösungen für kleine Unternehmen, 
             um ihre Online-Präsenz zu stärken und Geschäftsprozesse zu optimieren.
           </p>
           
-          <div className="flex flex-wrap justify-center gap-3">
-            <button 
-              onClick={() => scrollToSection('website-creation')}
-              className="px-4 py-2 text-sm rounded-full bg-white hover:bg-gray-100 text-gray-800 border border-gray-200 transition-colors"
-            >
-              Website-Erstellung
-            </button>
-            <button 
-              onClick={() => scrollToSection('social-media')}
-              className="px-4 py-2 text-sm rounded-full bg-white hover:bg-gray-100 text-gray-800 border border-gray-200 transition-colors"
-            >
-              Social Media
-            </button>
-            <button 
-              onClick={() => scrollToSection('comprehensive-packages')}
-              className="px-4 py-2 text-sm rounded-full bg-white hover:bg-gray-100 text-gray-800 border border-gray-200 transition-colors"
-            >
-              Komplettpakete
-            </button>
-            <button 
-              onClick={() => scrollToSection('support-consulting')}
-              className="px-4 py-2 text-sm rounded-full bg-white hover:bg-gray-100 text-gray-800 border border-gray-200 transition-colors"
-            >
-              Beratung & Support
-            </button>
-            <button 
-              onClick={() => scrollToSection('custom-solutions')}
-              className="px-4 py-2 text-sm rounded-full bg-white hover:bg-gray-100 text-gray-800 border border-gray-200 transition-colors"
-            >
-              Individuelle Lösungen
-            </button>
-          </div>
+          {!isMobile && (
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+              {serviceCategories.map(category => (
+                <button 
+                  key={category.id}
+                  onClick={() => scrollToSection(category.id)}
+                  className="px-3 py-1.5 text-xs sm:text-sm rounded-full bg-white hover:bg-gray-100 text-gray-800 border border-gray-200 transition-colors"
+                >
+                  {category.label}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>

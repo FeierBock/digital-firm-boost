@@ -11,10 +11,14 @@ import {
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { ChevronDown } from "lucide-react";
 
 const ServicesNavigation = () => {
   const [activeSection, setActiveSection] = useState("");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const isMobile = useIsMobile();
   
   // Function to smoothly scroll to a section
   const scrollToSection = (sectionId: string) => {
@@ -27,6 +31,11 @@ const ServicesNavigation = () => {
       
       // Update URL without reloading the page
       window.history.pushState(null, "", `/services#${sectionId}`);
+      
+      // Close mobile dropdown if open
+      if (isMobile) {
+        setMobileMenuOpen(false);
+      }
     }
   };
 
@@ -70,80 +79,67 @@ const ServicesNavigation = () => {
     };
   }, []);
 
+  // Services menu items
+  const serviceItems = [
+    { id: "website-creation", label: "Website-Erstellung" },
+    { id: "social-media", label: "Social Media" },
+    { id: "comprehensive-packages", label: "Komplettpakete" },
+    { id: "support-consulting", label: "Beratung & Support" },
+    { id: "custom-solutions", label: "Individuelle Lösungen" },
+    { id: "documents", label: "Dokumente" },
+  ];
+
+  // Mobile dropdown menu
+  if (isMobile) {
+    return (
+      <div className="relative z-10 mx-4 my-4">
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="flex items-center justify-between w-full px-4 py-3 bg-white border border-gray-200 rounded-lg shadow-sm text-left"
+        >
+          <span>
+            {serviceItems.find(item => item.id === activeSection)?.label || "Leistungen wählen"}
+          </span>
+          <ChevronDown className={`transition-transform ${mobileMenuOpen ? 'rotate-180' : ''}`} size={20} />
+        </button>
+        
+        {mobileMenuOpen && (
+          <div className="absolute mt-1 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-20">
+            {serviceItems.map((item) => (
+              <button
+                key={item.id}
+                className={cn(
+                  "w-full text-left px-4 py-3 hover:bg-gray-50 border-b border-gray-100 last:border-0",
+                  activeSection === item.id && "bg-gray-50 text-brand-600 font-medium"
+                )}
+                onClick={() => scrollToSection(item.id)}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // Desktop navigation menu
   return (
-    <NavigationMenu className="max-w-screen-xl mx-auto my-4">
+    <NavigationMenu className="max-w-screen-xl mx-auto my-4 flex justify-center">
       <NavigationMenuList className="flex-wrap justify-center">
-        <NavigationMenuItem>
-          <NavigationMenuLink
-            className={cn(
-              navigationMenuTriggerStyle(),
-              activeSection === "website-creation" && "bg-accent text-accent-foreground"
-            )}
-            onClick={() => scrollToSection("website-creation")}
-          >
-            Website-Erstellung
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-        
-        <NavigationMenuItem>
-          <NavigationMenuLink
-            className={cn(
-              navigationMenuTriggerStyle(),
-              activeSection === "social-media" && "bg-accent text-accent-foreground"
-            )}
-            onClick={() => scrollToSection("social-media")}
-          >
-            Social Media
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-        
-        <NavigationMenuItem>
-          <NavigationMenuLink
-            className={cn(
-              navigationMenuTriggerStyle(),
-              activeSection === "comprehensive-packages" && "bg-accent text-accent-foreground"
-            )}
-            onClick={() => scrollToSection("comprehensive-packages")}
-          >
-            Komplettpakete
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-        
-        <NavigationMenuItem>
-          <NavigationMenuLink
-            className={cn(
-              navigationMenuTriggerStyle(),
-              activeSection === "support-consulting" && "bg-accent text-accent-foreground"
-            )}
-            onClick={() => scrollToSection("support-consulting")}
-          >
-            Beratung & Support
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-        
-        <NavigationMenuItem>
-          <NavigationMenuLink
-            className={cn(
-              navigationMenuTriggerStyle(),
-              activeSection === "custom-solutions" && "bg-accent text-accent-foreground"
-            )}
-            onClick={() => scrollToSection("custom-solutions")}
-          >
-            Individuelle Lösungen
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-        
-        <NavigationMenuItem>
-          <NavigationMenuLink
-            className={cn(
-              navigationMenuTriggerStyle(),
-              activeSection === "documents" && "bg-accent text-accent-foreground"
-            )}
-            onClick={() => scrollToSection("documents")}
-          >
-            Dokumente
-          </NavigationMenuLink>
-        </NavigationMenuItem>
+        {serviceItems.map((item) => (
+          <NavigationMenuItem key={item.id}>
+            <NavigationMenuLink
+              className={cn(
+                navigationMenuTriggerStyle(),
+                activeSection === item.id && "bg-accent text-accent-foreground"
+              )}
+              onClick={() => scrollToSection(item.id)}
+            >
+              {item.label}
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+        ))}
       </NavigationMenuList>
     </NavigationMenu>
   );
