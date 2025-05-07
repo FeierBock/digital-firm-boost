@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Linkedin, Twitter, Mail, Phone, MapPin } from 'lucide-react';
 const Footer = () => {
@@ -68,28 +69,28 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Leistungen</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/services" className="text-gray-400 hover:text-white transition-colors">
+                <Link to="/services#website-creation" className="text-gray-400 hover:text-white transition-colors">
                   Website-Erstellung
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-gray-400 hover:text-white transition-colors">
+                <Link to="/services#social-media" className="text-gray-400 hover:text-white transition-colors">
                   Social Media Management
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-gray-400 hover:text-white transition-colors">
-                  Prozessoptimierung
+                <Link to="/services#comprehensive-packages" className="text-gray-400 hover:text-white transition-colors">
+                  Komplettpakete
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-gray-400 hover:text-white transition-colors">
-                  DigitalInvest KMU Beratung
+                <Link to="/services#support-consulting" className="text-gray-400 hover:text-white transition-colors">
+                  Beratung & Support
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-gray-400 hover:text-white transition-colors">
-                  Website Management
+                <Link to="/services#custom-solutions" className="text-gray-400 hover:text-white transition-colors">
+                  Individuelle Lösungen
                 </Link>
               </li>
             </ul>

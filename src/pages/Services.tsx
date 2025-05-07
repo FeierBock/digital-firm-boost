@@ -1,4 +1,6 @@
 
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import CtaSection from '@/components/CtaSection';
 import ServiceSection from '@/components/services/ServiceSection';
@@ -11,6 +13,24 @@ import CustomSolutions from '@/components/services/CustomSolutions';
 import Documents from '@/components/services/Documents';
 
 const Services = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Check if there's a hash in the URL
+    if (location.hash) {
+      // Delay scrolling slightly to ensure the page is fully loaded
+      setTimeout(() => {
+        const element = document.getElementById(location.hash.substring(1));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      // If no hash, scroll to top
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
+  
   return (
     <Layout>
       {/* Hero Section */}
@@ -57,7 +77,9 @@ const Services = () => {
       </ServiceSection>
 
       {/* Custom Solutions Section */}
-      <CustomSolutions />
+      <div id="custom-solutions">
+        <CustomSolutions />
+      </div>
 
       {/* Documents Section */}
       <Documents />
