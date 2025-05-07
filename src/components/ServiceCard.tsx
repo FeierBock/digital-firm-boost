@@ -14,7 +14,7 @@ interface ServiceCardProps {
   link: string;
   accentColor?: string;
   primary?: boolean;
-  id?: string; // Added the id property as optional
+  id?: string;
 }
 
 const ServiceCard = ({
@@ -30,11 +30,11 @@ const ServiceCard = ({
 }: ServiceCardProps) => {
   return (
     <Card 
-      className={`card-hover ${primary ? 'border-brand-500 shadow-lg relative overflow-hidden' : 'border-gray-200'}`}
+      className={`h-full flex flex-col transition-all duration-300 hover:shadow-lg ${primary ? 'border-brand-500 shadow-md relative overflow-hidden' : 'border-gray-200'}`}
       id={id}
     >
       {primary && (
-        <div className="absolute top-0 right-0 bg-brand-500 text-white px-4 py-1 rounded-bl-lg font-medium text-sm">
+        <div className="absolute top-0 right-0 bg-brand-500 text-white px-4 py-1 rounded-bl-lg font-medium text-sm z-10">
           Empfohlen
         </div>
       )}
@@ -48,7 +48,7 @@ const ServiceCard = ({
         <CardDescription className="text-gray-600 mt-2">{description}</CardDescription>
       </CardHeader>
       
-      <CardContent className="pb-6">
+      <CardContent className="pb-6 flex-grow">
         {price && (
           <div className="mb-6 flex items-end">
             <span className="text-3xl font-bold">{price}</span>
@@ -66,7 +66,7 @@ const ServiceCard = ({
         </ul>
       </CardContent>
       
-      <CardFooter>
+      <CardFooter className="mt-auto pt-4">
         <Button asChild className={`w-full ${primary ? 'bg-brand-600 hover:bg-brand-700' : 'bg-gray-100 hover:bg-gray-200 text-gray-800'}`}>
           <Link to={link}>
             {price ? 'Paket wählen' : 'Mehr erfahren'}

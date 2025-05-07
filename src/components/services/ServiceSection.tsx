@@ -18,14 +18,14 @@ const ServiceSection = ({
   children 
 }: ServiceSectionProps) => {
   return (
-    <section className={`py-20 ${backgroundClass}`} id={id}>
+    <section className={`py-16 md:py-20 ${backgroundClass}`} id={id}>
       <div className="container mx-auto px-4 md:px-6">
         <SectionTitle
           title={title}
           subtitle={subtitle}
-          className="mb-16"
+          className="mb-12 md:mb-16"
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {children}
         </div>
       </div>
