@@ -1,12 +1,12 @@
 
 import { Link, useParams } from 'react-router-dom';
 import Layout from '@/components/Layout';
-import { SectionTitle } from '@/components/ui/section-title';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@/components/ui/breadcrumb';
 import { CalendarIcon, Clock, ChevronLeft, Tag, User } from 'lucide-react';
 import { BlogPosts } from '@/data/blogData';
+import CtaSection from '@/components/CtaSection';
 
 const BlogDetail = () => {
   const { id } = useParams();
@@ -58,21 +58,23 @@ const BlogDetail = () => {
           
           <div className="max-w-4xl mx-auto">
             <Badge className="bg-brand-500 text-white hover:bg-brand-600 mb-4">
-              {post.category}
+              <Link to={`/blog/category/${post.category.toLowerCase()}`}>
+                {post.category}
+              </Link>
             </Badge>
-            <h1 className="text-3xl md:text-4xl font-bold mb-6">{post.title}</h1>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">{post.title}</h1>
             
             <div className="flex flex-wrap items-center text-sm text-gray-500 gap-4 mb-6">
               <div className="flex items-center">
-                <User size={16} className="mr-1" />
+                <User size={16} className="mr-2" />
                 <span>{post.author}</span>
               </div>
               <div className="flex items-center">
-                <CalendarIcon size={16} className="mr-1" />
+                <CalendarIcon size={16} className="mr-2" />
                 <span>{post.date}</span>
               </div>
               <div className="flex items-center">
-                <Clock size={16} className="mr-1" />
+                <Clock size={16} className="mr-2" />
                 <span>{post.readTime}</span>
               </div>
             </div>
@@ -85,7 +87,7 @@ const BlogDetail = () => {
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             <div className="lg:col-span-2">
-              <div className="mb-6 rounded-lg overflow-hidden">
+              <div className="mb-8 rounded-lg overflow-hidden">
                 <img 
                   src={post.image} 
                   alt={post.title}
@@ -94,49 +96,15 @@ const BlogDetail = () => {
               </div>
               
               <div className="prose prose-lg max-w-none">
-                <p className="font-medium text-lg mb-4">{post.excerpt}</p>
+                <p className="font-medium text-lg mb-6 text-gray-700">{post.excerpt}</p>
                 
-                <h2>Einleitung</h2>
-                <p>
-                  In der heutigen digitalen Landschaft ist es für Unternehmen jeder Größe wichtig, ihre Online-Präsenz 
-                  strategisch zu gestalten. {post.title} bietet hierfür wichtige Einblicke und praktische Tipps.
-                </p>
-                
-                <h2>Warum ist dieses Thema wichtig?</h2>
-                <p>
-                  Die Relevanz von {post.category} nimmt stetig zu, da immer mehr Kunden ihre Recherche online beginnen, 
-                  bevor sie eine Kaufentscheidung treffen. Eine durchdachte Strategie kann Ihnen helfen, 
-                  Ihre Zielgruppe effektiver zu erreichen und Ihre Geschäftsziele zu verwirklichen.
-                </p>
-                
-                <h2>Wichtige Aspekte zu beachten</h2>
-                <p>
-                  Bei der Implementierung sollten Sie folgende Punkte berücksichtigen:
-                </p>
-                <ul>
-                  <li>Analyse Ihrer aktuellen Position und Definition klarer Ziele</li>
-                  <li>Identifikation Ihrer Zielgruppe und ihrer Bedürfnisse</li>
-                  <li>Entwicklung einer maßgeschneiderten Strategie</li>
-                  <li>Regelmäßige Überprüfung und Anpassung Ihrer Maßnahmen</li>
-                </ul>
-                
-                <h2>Praktische Umsetzungstipps</h2>
-                <p>
-                  Beginnen Sie mit kleinen, messbaren Schritten und bauen Sie Ihre Strategie kontinuierlich aus. 
-                  Nutzen Sie verfügbare Tools zur Analyse und Optimierung Ihrer Bemühungen.
-                </p>
-                
-                <h2>Fazit</h2>
-                <p>
-                  {post.title} ist ein wichtiger Baustein für Ihren digitalen Erfolg. Mit der richtigen 
-                  Herangehensweise können Sie Ihre Online-Präsenz signifikant verbessern und Ihr Unternehmen 
-                  auf die nächste Stufe heben.
-                </p>
+                {/* Render article content from HTML string */}
+                <div dangerouslySetInnerHTML={{ __html: post.content }} />
               </div>
               
               {/* Tags */}
-              <div className="mt-8 flex flex-wrap gap-2">
-                <Tag size={16} className="text-gray-500" />
+              <div className="mt-10 flex flex-wrap gap-2 items-center">
+                <Tag size={18} className="text-gray-500" />
                 {post.tags.map((tag, idx) => (
                   <Link 
                     key={idx} 
@@ -149,7 +117,7 @@ const BlogDetail = () => {
               </div>
               
               {/* Navigation links */}
-              <div className="flex justify-between mt-10 pt-6 border-t">
+              <div className="flex justify-between mt-10 pt-8 border-t">
                 <Button 
                   variant="outline" 
                   className="gap-2"
@@ -165,35 +133,71 @@ const BlogDetail = () => {
             
             {/* Sidebar */}
             <div className="lg:col-span-1">
+              {/* Author Info */}
+              <div className="mb-8 bg-gray-50 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold mb-4">Über den Autor</h3>
+                <div className="flex items-start gap-4">
+                  <div className="w-16 h-16 rounded-full bg-gray-300 flex-shrink-0 overflow-hidden">
+                    <img 
+                      src={`https://ui-avatars.com/api/?name=${encodeURIComponent(post.author)}&background=random`}
+                      alt={post.author}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-lg">{post.author}</h4>
+                    <p className="text-gray-600 text-sm mt-1">Experte für {post.category} mit langjähriger Erfahrung in der digitalen Branche.</p>
+                  </div>
+                </div>
+              </div>
+              
               {/* Related Posts */}
               <div className="mb-8">
                 <h3 className="text-xl font-semibold mb-4">Ähnliche Artikel</h3>
                 <div className="space-y-4">
-                  {relatedPosts.map((relatedPost) => (
-                    <div key={relatedPost.id} className="flex gap-3">
-                      <div className="flex-shrink-0 w-20 h-20 rounded overflow-hidden">
-                        <img 
-                          src={relatedPost.image} 
-                          alt={relatedPost.title}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div>
-                        <h4 className="font-medium line-clamp-2">
-                          <Link 
-                            to={`/blog/${relatedPost.id}`}
-                            className="hover:text-brand-600 transition-colors"
-                          >
-                            {relatedPost.title}
-                          </Link>
-                        </h4>
-                        <div className="flex items-center text-xs text-gray-500 mt-1">
-                          <CalendarIcon size={12} className="mr-1" />
-                          <span>{relatedPost.date}</span>
+                  {relatedPosts.length > 0 ? (
+                    relatedPosts.map((relatedPost) => (
+                      <div key={relatedPost.id} className="flex gap-3">
+                        <div className="flex-shrink-0 w-20 h-20 rounded overflow-hidden">
+                          <img 
+                            src={relatedPost.image} 
+                            alt={relatedPost.title}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div>
+                          <h4 className="font-medium line-clamp-2">
+                            <Link 
+                              to={`/blog/${relatedPost.id}`}
+                              className="hover:text-brand-600 transition-colors"
+                            >
+                              {relatedPost.title}
+                            </Link>
+                          </h4>
+                          <div className="flex items-center text-xs text-gray-500 mt-1">
+                            <CalendarIcon size={12} className="mr-1" />
+                            <span>{relatedPost.date}</span>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    ))
+                  ) : (
+                    <p className="text-gray-500">Keine ähnlichen Artikel gefunden.</p>
+                  )}
+                </div>
+              </div>
+              
+              {/* Topics/Categories */}
+              <div className="mb-8">
+                <h3 className="text-xl font-semibold mb-4">Themen</h3>
+                <div className="flex flex-wrap gap-2">
+                  {/* Link to category page */}
+                  <Link 
+                    to={`/blog/category/${post.category.toLowerCase()}`}
+                    className="bg-brand-100 text-brand-700 hover:bg-brand-200 px-3 py-1 rounded-full text-sm transition-colors"
+                  >
+                    {post.category}
+                  </Link>
                 </div>
               </div>
               
@@ -218,6 +222,17 @@ const BlogDetail = () => {
           </div>
         </div>
       </section>
+      
+      {/* Call to Action */}
+      <CtaSection
+        title="Haben Sie Fragen zu diesem Thema?"
+        description="Kontaktieren Sie uns für eine kostenlose Beratung rund um Ihre digitale Präsenz. Unsere Experten helfen Ihnen gerne weiter."
+        primaryButtonText="Kontakt aufnehmen"
+        primaryButtonLink="/contact"
+        secondaryButtonText="Mehr erfahren"
+        secondaryButtonLink="/services"
+        backgroundClass="bg-gradient-to-r from-brand-50 to-accent2-50"
+      />
     </Layout>
   );
 };
